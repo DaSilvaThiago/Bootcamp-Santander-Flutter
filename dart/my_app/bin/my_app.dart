@@ -1,7 +1,7 @@
 import 'package:my_app/utils.dart' as utils;
 
 void main(List<String> arguments) {
-  
+  print("object");
 }
 
 
