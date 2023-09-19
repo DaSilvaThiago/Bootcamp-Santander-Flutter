@@ -4,11 +4,11 @@ import 'package:oop_dart/enum/type_notification.dart';
 import 'package:oop_dart/service/sendNotification.dart';
 
 void main(List<String> arguments) {
-  var pp = new PhysicalPerson(
+  var pp = PhysicalPerson(
       "48164818852", "Thiago", "SP street", typeNotification: TypeNotification.email);
   print(pp);
 
-  var lp = new LegalPerson(
+  var lp = LegalPerson(
       "4145039215845", "Matheus", "asdgfg 23", typeNotification: TypeNotification.nothing);
   print(lp);
 

@@ -1,4 +1,4 @@
-import 'package:oop_dart/enum/type_notification.dart';
+import 'package:oop_dart/enum/type_notification.dart' show TypeNotification;
 import 'package:oop_dart/class/person.dart';
 
 class LegalPerson extends Person {
