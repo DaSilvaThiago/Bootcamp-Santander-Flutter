@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:trilhaapp/pages/firstPage.dart';
-import 'package:trilhaapp/pages/redistered_datas.dart';
-import 'package:trilhaapp/pages/secondPage.dart';
-import 'package:trilhaapp/pages/thirdPage.dart';
+import 'package:trilhaapp/pages/card_page.dart';
+import 'package:trilhaapp/pages/list_view_horizontal.dart';
+import 'package:trilhaapp/pages/task_page.dart';
+import 'package:trilhaapp/shared/widgets/custom_drawer.dart';
+import 'package:trilhaapp/pages/image_assets.dart';
+import 'package:trilhaapp/pages/list_view.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -19,54 +21,7 @@ class _MainPageState extends State<MainPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(title: const Text("Main Page")),
-        drawer: Drawer(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                InkWell(
-                  child: Container(
-                      padding:
-                          const EdgeInsetsDirectional.symmetric(vertical: 5),
-                      width: double.infinity,
-                      child: const Text("Registered Datas")),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const RegisteredPage()));
-                  },
-                ),
-                const Divider(),
-                const SizedBox(
-                  height: 10,
-                ),
-                InkWell(
-                  child: Container(
-                      padding:
-                          const EdgeInsetsDirectional.symmetric(vertical: 5),
-                      width: double.infinity,
-                      child: const Text("Use terms and privacity")),
-                  onTap: () {},
-                ),
-                const Divider(),
-                const SizedBox(
-                  height: 10,
-                ),
-                InkWell(
-                  child: Container(
-                      padding:
-                          const EdgeInsetsDirectional.symmetric(vertical: 5),
-                      width: double.infinity,
-                      child: const Text("Settings")),
-                  onTap: () {},
-                ),
-              ],
-            ),
-          ),
-        ),
+        drawer: const CustomDrawer(),
         body: Column(
           children: [
             Expanded(
@@ -77,9 +32,16 @@ class _MainPageState extends State<MainPage> {
                       positionPage = value;
                     });
                   },
-                  children: const [FirstPage(), SecondPage(), ThirdPage()]),
+                  children: const [
+                    CardPage(),
+                    ImageAssetsPage(),
+                    ListViewPage(),
+                    ListViewHorizontal(),
+                    TaskPage()
+                  ]),
             ),
             BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
                 onTap: (value) {
                   controller.jumpToPage(value);
                 },
@@ -89,7 +51,11 @@ class _MainPageState extends State<MainPage> {
                       label: "Pag1", icon: Icon(Icons.home)),
                   BottomNavigationBarItem(label: "Pag2", icon: Icon(Icons.add)),
                   BottomNavigationBarItem(
-                      label: "Pag3", icon: Icon(Icons.person))
+                      label: "Pag3", icon: Icon(Icons.person)),
+                  BottomNavigationBarItem(
+                      label: "Pag4", icon: Icon(Icons.account_circle)),
+                  BottomNavigationBarItem(
+                      label: "tasks", icon: Icon(Icons.task))
                 ])
           ],
         ),

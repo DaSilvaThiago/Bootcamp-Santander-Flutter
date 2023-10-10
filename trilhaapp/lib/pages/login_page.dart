@@ -131,10 +131,12 @@ class _LoginPageState extends State<LoginPage> {
                     width: double.infinity,
                     child: TextButton(
                         onPressed: () {
-                          if (emailController.text.trim() ==
-                                  "" &&
+                          if (emailController.text.trim() == "" &&
                               passwordController.text.trim() == "") {
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MainPage()));
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const MainPage()));
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(

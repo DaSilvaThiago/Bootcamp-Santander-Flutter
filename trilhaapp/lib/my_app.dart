@@ -9,9 +9,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.lightBlue,
-      textTheme: GoogleFonts.robotoTextTheme()
-      ),
+      theme: ThemeData(
+          primarySwatch: Colors.lightBlue,
+          textTheme: GoogleFonts.robotoTextTheme()),
       home: const LoginPage(),
     );
   }
